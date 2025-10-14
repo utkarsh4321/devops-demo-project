@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactjs-app-deployment
+  namespace: frontend-namespace
+  labels:
+    app: reactjs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactjs-app
+  template:
+    metadata:
+      labels:
+        app: reactjs-app
+    spec:
+      containers:
+        - name: reactjs-app-container
+          image: dummy-frontend:v5
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+          env:
+            - name: VITE_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: reactjsapp-config
+                  key: VITE_API_URL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactjs-app-service
+  namespace: frontend-namespace
+  labels:
+    app: reactjs-app
+spec:
+  type: ClusterIP
+  selector:
+    app: reactjs-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+# kind: ConfigMap
+# apiVersion: v1
+# metadata:
+#   name: reactjsapp-config
+#   namespace: frontend-namespace
+# data:
+#   VITE_API_URL: http://api.localhost
