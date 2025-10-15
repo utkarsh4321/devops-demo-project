@@ -32,5 +32,5 @@ jobs:
           ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPOSITORY }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ vars.AWS_ECR_REPO_NAME }} # Your ECR repo name
           IMAGE_TAG: ${{ github.run_id }} # Or use 'latest' or a semantic version
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f ./frontend/Dockerfile ./frontend
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
