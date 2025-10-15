@@ -17,6 +17,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Echo Environment Variables
+        run: |
+          echo "API_URL is $REPO_NAME"
+          echo "REGION is $REGION"
+        env:
+          REPO_NAME: ${{ vars.AWS_ECR_REPO_NAME }} # From 'production' environment
+          REGION: ${{ secrets.AWS_REGION }} # From repository secrets
+
       - name: Configure AWS credentials
 
         uses: aws-actions/configure-aws-credentials@v4
