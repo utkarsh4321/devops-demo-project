@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: reactjs-app-container
-          image: "$ECR_IMAGE"
+          image: $ECR_IMAGE
           imagePullPolicy: Always
           ports:
             - containerPort: 80
