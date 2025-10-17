@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: reactjs-app-container
-          image: 
+          image: sitarama
           imagePullPolicy: Always
           ports:
             - containerPort: 80
