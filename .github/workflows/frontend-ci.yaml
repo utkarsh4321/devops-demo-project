@@ -68,8 +68,8 @@ jobs:
           sed -i 's/image: .*/image: ${{ needs.build-and-push.outputs.ECR_IMAGE }}/g' ./frontend/aws-eks-react-deployment.yaml
       - name: commit changes
         run: |
-          git config --global user.name ${{ github.event.head.commit.author.name }}
-          git config --global user.email ${{ github.event.head.commit.author.email }}
+          git config --global user.name "utkarsh4321"
+          git config --global user.email "utkarshsrivastava434@gmail.com"
           git add ./frontend/aws-eks-react-deployment.yaml
           git commit -m '[CI]: Update ECR image in Kubernetes deployment'
           git push
