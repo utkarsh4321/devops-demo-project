@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: reactjs-app-container
-          image: 
+          image: 033849514070ssdsdsd
           imagePullPolicy: Always
           ports:
             - containerPort: 80
