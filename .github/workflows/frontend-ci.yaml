@@ -50,7 +50,7 @@ jobs:
           # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       - name: Set output variables
         id: set-output
-        run: echo "ECR_IMAGE=033849514070.dkr.ecr.ap-south-1.amazonaws.com/frontend/dummy-frontend-app" >> "$GITHUB_OUTPUT"
+        run: echo "ECR_IMAGE=sitarama" >> "$GITHUB_OUTPUT"
 
   update-k8s:
     runs-on: ubuntu-latest
