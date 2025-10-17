@@ -64,10 +64,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Use a personal access token with repo access
       - name: update k8s deployment file
-        env: 
-           ECR_IMAGE: 01234567.dkr.ecr.ap-south-1.amazonaws.com/frontend
         run: |
-          sed -i 's#image: .*#image: 01234567.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest#g' ./frontend/aws-eks-react-deployment.yaml
+          sed -i 's#image: .*#image: ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/${{ vars.AWS_ECR_REPO_NAME }}:${{github.run_id}}#g' ./frontend/aws-eks-react-deployment.yaml
       - name: commit changes
         run: |
           git config --global user.name "utkarsh4321"
