@@ -13,8 +13,8 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     environment: production
-    outputs:
-      ECR_IMAGE: ${{ steps.set-output.outputs.ECR_IMAGE }}
+    # outputs:
+    #   ECR_IMAGE: ${{ steps.set-output.outputs.ECR_IMAGE }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -48,9 +48,9 @@ jobs:
       #   run: |
       #     docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f ./frontend/Dockerfile ./frontend
       #     # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-      - name: Set output variables
-        id: set-output
-        run: echo "ECR_IMAGE='033849514070ssdsdsd'" >> "$GITHUB_OUTPUT"
+      # - name: Set output variables
+      #   id: set-output
+      #   run: echo "ECR_IMAGE='033849514070ssdsdsd'" >> "$GITHUB_OUTPUT"
       - name: Debug GITHUB_OUTPUT
         run: cat $GITHUB_OUTPUT
 
@@ -65,7 +65,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} # Use a personal access token with repo access
       - name: update k8s deployment file
         run: |
-          sed -i 's/image: .*/image: ${{ needs.build-and-push.outputs.ECR_IMAGE }}/g' ./frontend/aws-eks-react-deployment.yaml
+          sed -i 's/image: .*/image: ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.ap-south-1.amazonaws.com/${{ vars.AWS_ECR_REPO_NAME }}/g' ./frontend/aws-eks-react-deployment.yaml
       - name: commit changes
         run: |
           git config --global user.name "utkarsh4321"
