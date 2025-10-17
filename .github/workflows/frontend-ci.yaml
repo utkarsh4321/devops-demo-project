@@ -67,7 +67,7 @@ jobs:
         env: 
            ECR_IMAGE: 01234567.dkr.ecr.ap-south-1.amazonaws.com/frontend
         run: |
-          sed -i 's#image: .*#image: $ECR_IMAGE#g' ./frontend/aws-eks-react-deployment.yaml
+          sed -i 's#image: .*#image: 01234567.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest#g' ./frontend/aws-eks-react-deployment.yaml
       - name: commit changes
         run: |
           git config --global user.name "utkarsh4321"
