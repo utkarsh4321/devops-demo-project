@@ -50,7 +50,9 @@ jobs:
       #     # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       - name: Set output variables
         id: set-output
-        run: echo "ECR_IMAGE='033849514070.dkr.ecr.ap-south-1.amazonaws.com/frontend/dummy-frontend-app'" >> "$GITHUB_OUTPUT"
+        run: echo "ECR_IMAGE='033849514070ssdsdsd" >> "$GITHUB_OUTPUT"
+      - name: Debug GITHUB_OUTPUT
+        run: cat "$GITHUB_OUTPUT"
 
   update-k8s:
     runs-on: ubuntu-latest
@@ -61,8 +63,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Use a personal access token with repo access
-      - name: Debug GITHUB_OUTPUT
-        run: cat "$GITHUB_OUTPUT"
       - name: update k8s deployment file
         run: |
           sed -i 's/image: .*/image: ${{ needs.build-and-push.outputs.ECR_IMAGE }}/g' ./frontend/aws-eks-react-deployment.yaml
