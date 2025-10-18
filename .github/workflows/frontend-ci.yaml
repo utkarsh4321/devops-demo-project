@@ -55,8 +55,6 @@ jobs:
       # - name: Set output variables
       #   id: set-output
       #   run: echo "ECR_IMAGE='033849514070ssdsdsd'" >> "$GITHUB_OUTPUT"
-      - name: Debug GITHUB_OUTPUT
-        run: cat $GITHUB_OUTPUT
 
   update-k8s:
     if: github.event_name == 'push'
@@ -66,7 +64,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Use a personal access token with repo access
+          token: ${{ secrets.PAT_TOKEN }} # Use a personal access token with repo access
       - name: update k8s deployment file
         run: |
           sed -i 's#image: .*#image: ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/${{ vars.AWS_ECR_REPO_NAME }}:${{github.run_id}}#g' ./frontend/aws-eks-react-deployment.yaml
