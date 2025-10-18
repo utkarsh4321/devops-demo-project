@@ -30,7 +30,7 @@ function App() {
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde et
             illo quo praesentium modi facilis tenetur ullam eaque. Sapiente
             voluptatibus voluptatum optio id quae corrupti natus eum accusamus
-            ut quo.tuuu
+            ut quo.tuuuss
           </p>
         </header>
       </div>
