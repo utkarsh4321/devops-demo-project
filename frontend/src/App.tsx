@@ -25,7 +25,7 @@ function App() {
         <header className="App-header">
           <h1>Welcome to the Test DevOps App Deployment</h1>
           <p>This is a simple React application.</p>
-          <span>Check for the repo rules</span>
+          <span>Check for the repo rule</span>
         </header>
       </div>
       <div>
