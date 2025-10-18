@@ -26,6 +26,12 @@ function App() {
           <h1>Welcome to the Test DevOps App Deployment</h1>
           <p>This is a simple React application.</p>
           <span>Check for the repo rule</span>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde et
+            illo quo praesentium modi facilis tenetur ullam eaque. Sapiente
+            voluptatibus voluptatum optio id quae corrupti natus eum accusamus
+            ut quo.
+          </p>
         </header>
       </div>
       <div>
