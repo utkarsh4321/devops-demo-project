@@ -33,8 +33,8 @@ function App() {
             ut quo.tuuuss Hello raka ssc Changess
           </p>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias,
-            corrupti.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Molestias,z corrupti.
           </p>
         </header>
       </div>
