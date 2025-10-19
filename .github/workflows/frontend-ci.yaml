@@ -19,6 +19,9 @@ jobs:
     environment: production
     # outputs:
     #   ECR_IMAGE: ${{ steps.set-output.outputs.ECR_IMAGE }}
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
