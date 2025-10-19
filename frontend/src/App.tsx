@@ -30,7 +30,7 @@ function App() {
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde et
             illo quo praesentium modi facilis tenetur ullam eaque. Sapiente
             voluptatibus voluptatum optio id quae corrupti natus eum accusamus
-            ut quo.tuuuss Hello raka ssc Changes
+            ut quo.tuuuss Hello raka ssc Changess
           </p>
         </header>
       </div>
