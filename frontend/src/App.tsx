@@ -28,7 +28,7 @@ function App() {
           </h1>
           <p>This is a simple React application.</p>
           <span>Check for the repo rule</span>
-          <p>
+          <p style={{ color: "red" }}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde et
             illo quo praesentium modi facilis tenetur ullam eaque. Sapiente
             voluptatibus voluptatum optio id quae corrupti natus eum accusamus
