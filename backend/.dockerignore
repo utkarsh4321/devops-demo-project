@@ -29,9 +29,11 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 **/build
+**/drrizle
 **/dist
 LICENSE
 README.md
-**/backend
-/*.yaml
+mysql-secret.yaml
+mysql-config.yaml
+**/*.yaml
 **/k8s

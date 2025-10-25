@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # The name of your deployment
+  name: nodejs-app-deployment
+  namespace: backend-namespace
+  # Labels to identify your deployment
+  labels:
+    app: nodejs-app
+spec:
+  # The number of desired replicas (pods)
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+        - name: nodejs-app-container
+          # Replace with the name of your container image
+          # Example: my-dockerhub-username/my-nodejs-app:1.0.0
+          image: 033849514070.dkr.ecr.ap-south-1.amazonaws.com/backend/dummy-backend-app:latest
+          imagePullPolicy: Always
+          # Define the port your application listens on
+          ports:
+            - containerPort: 5500
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: nodejsapp-config
+                  key: DB_HOST
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: nodejsapp-secret
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: nodejsapp-secret
+                  key: DB_PASSWORD
+            - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: nodejsapp-config
+                  key: DB_DATABASE
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: nodejsapp-config
+                  key: DB_PORT
+            - name: DB_CONNECTION
+              valueFrom:
+                configMapKeyRef:
+                  name: nodejsapp-config
+                  key: DB_CONNECTION
+            - name: ALLOWED_ORIGIN
+              valueFrom:
+                configMapKeyRef:
+                  name: nodejsapp-config
+                  key: ALLOWED_ORIGIN
+
+          # Define the health check probes
+          # livenessProbe:
+          #   httpGet:
+          #     # The path to your health check endpoint
+          #     path: /healthz
+          #     port: <your-app-port>
+          #   initialDelaySeconds: 15
+          #   periodSeconds: 20
+          # readinessProbe:
+          #   httpGet:
+          #     path: /healthz
+          #     port: <your-app-port>
+          #   initialDelaySeconds: 5
+          #   periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  # The name of your service
+  name: nodejs-app-service
+  namespace: backend-namespace
+spec:
+  # This selector links the service to your deployment pods
+  selector:
+    app: nodejs-app
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      # Port on the service for external traffic
+      port: 80
+      # Port on the container to forward traffic to
+      targetPort: 5500
