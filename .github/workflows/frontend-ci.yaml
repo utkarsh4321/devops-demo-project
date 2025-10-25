@@ -199,7 +199,7 @@ jobs:
           git config --global user.name "GitHub Actions BOT"
           git config --global user.email "actionsBOT@github.com"
           git add frontend/deployment.yaml backend/deployment.yaml
-          git commit -m "Update image to ${{ github.sha }}"
+          git commit -m "[CI] Update image to ${{ github.sha }}"
 
           # Push
           git push -f https://${GIT_TOKEN}@github.com/utkarsh4321/devops-deployment-repo.git main
