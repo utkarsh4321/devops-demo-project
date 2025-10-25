@@ -4,4 +4,4 @@ metadata:
   name: reactjsapp-config
   namespace: frontend-namespace
 data:
-  VITE_API_URL: http://api.test.xyz
+  VITE_API_URL: http://api.localhost

@@ -34,10 +34,6 @@ function App() {
             voluptatibus voluptatum optio id quae corrupti natus eum accusamus
             ut quo.tuuuss Hello raka ssc Changess sss
           </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Molestias,z corrupti.s
-          </p>
         </header>
       </div>
       <div>
