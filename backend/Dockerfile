@@ -22,7 +22,7 @@ COPY drizzle.config.js ./drizzle.config.js
 RUN npm install --silent
 COPY . .
 RUN npm run build
-RUN npm run generate
+# RUN npm run generate
 
 FROM builder AS deps
 # WORKDIR /app
