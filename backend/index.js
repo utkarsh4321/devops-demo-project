@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const app = express();
 const port = 5500;
-
+console.log("Starting server...", process.env.ALLOWED_ORIGIN);
 app.use(
   cors({
     origin: process.env.ALLOWED_ORIGIN, // Allow requests from the frontend
