@@ -7,6 +7,9 @@ metadata:
   # Labels to identify your deployment
   labels:
     app: nodejs-app
+  annotations:
+    configmap.reloader.stakater.com/reload: "nodejsapp-config"
+    secret.reloader.stakater.com/reload: "nodejsapp-secret"
 spec:
   # The number of desired replicas (pods)
   replicas: 1
