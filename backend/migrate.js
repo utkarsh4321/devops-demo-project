@@ -8,7 +8,8 @@ console.log(
   "dotenv",
   process.env.DB_HOST,
   process.env.DB_USERNAME,
-  process.env.DB_DATABASE
+  process.env.DB_DATABASE,
+  process.env.DB_PORT
 );
 async function main() {
   try {
