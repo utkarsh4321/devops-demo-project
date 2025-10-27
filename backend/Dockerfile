@@ -18,7 +18,7 @@ FROM node:lts-alpine AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY drizzle.config.js ./drizzle.config.js
-
+COPY drizzle ./drizzle
 RUN npm install --silent
 COPY . .
 RUN npm run build
