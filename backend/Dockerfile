@@ -40,7 +40,7 @@ WORKDIR /app
 COPY --from=builder /app/dist ./
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./
-# COPY --from=builder /app/drizzle.config.ts ./drizzle.config.ts
+COPY --from=builder /app/drizzle ./drizzle
 # COPY --from=builder /app/src/db ./src/db
 # COPY --from=builder app/src/features ./src/features
 # COPY --from=builder app/src/services ./src/services

@@ -1,14 +1,13 @@
 require("dotenv").config({ debug: true });
 const { defineConfig } = require("drizzle-kit");
 
-// console.log(
-//   process.env.DB_CONNECTION,
-//   process.env.DB_HOST,
-//   process.env.DB_PORT,
-//   process.env.DB_DATABASE,
-//   process.env.DB_USERNAME,
-//   process.env.DB_PASSWORD
-// );
+console.log(
+  process.env.DB_CONNECTION,
+  process.env.DB_HOST,
+  process.env.DB_PORT,
+  process.env.DB_DATABASE,
+  process.env.DB_USERNAME
+);
 module.exports = defineConfig({
   schema: "./schema.js",
   out: "./drizzle",
