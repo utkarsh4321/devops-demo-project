@@ -7,5 +7,5 @@ data:
   DB_HOST: mysql-headless-service.db-namespace
   DB_DATABASE: my_testing_db
   DB_PORT: "3306"
-  ALLOWED_ORIGIN: http://front.localhost
+  ALLOWED_ORIGIN: http://api.localhost
   DB_CONNECTION: mysql
