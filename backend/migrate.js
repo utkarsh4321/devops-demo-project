@@ -52,7 +52,7 @@ async function main() {
       await db.insert(countries).values(dummyCountries);
       console.log("Seeded countries:", dummyCountries.length);
     } else {
-      console.log("Table already contains data, skipping seeding");
+      console.log("Table already contains data, skipping seeding.");
     }
 
     // Close connection
