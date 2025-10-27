@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: process.env.ALLOWED_ORIGIN, // Allow requests from the frontend
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    credentials: true, // Allow credentials (cookies, authorization headers, etc..)
   })
 ); // Enable CORS for all routes
 
