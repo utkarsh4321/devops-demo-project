@@ -41,6 +41,8 @@ async function main() {
       { name: "Australia", code: "AU", population: 26000000 },
       { name: "South Africa", code: "ZA", population: 60000000 },
       { name: "Mexico", code: "MX", population: 128000000 },
+      { name: "China", code: "CN", population: 1440000000 },
+      { name: "Indonesia", code: "ID", population: 276000000 },
     ];
 
     // Check if table is empty to avoid duplicate seeding
