@@ -198,7 +198,7 @@ jobs:
           # Commit changes
           git config --global user.name "GitHub Actions BOT"
           git config --global user.email "actionsBOT@github.com"
-          git add frontend/deployment.yaml backend/deployment.yaml
+          git add .
           git commit -m "[CI] Update image to ${{ github.sha }}"
 
           # Push
