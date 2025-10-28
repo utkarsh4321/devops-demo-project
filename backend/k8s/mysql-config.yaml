@@ -1,9 +1,0 @@
-apiVersion: v1
-data:
-  DATABASE_NAME: my_testing_db
-  # PMA_HOST: mysql-service
-kind: ConfigMap
-metadata:
-  creationTimestamp: null
-  name: mysql-config
-  namespace: db-namespace
