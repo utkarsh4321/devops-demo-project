@@ -3,6 +3,9 @@ kind: StatefulSet
 metadata:
   name: mysql-statefulset
   namespace: db-namespace
+  annotations:
+    configmap.reloader.stakater.com/reload: "mysql-config"
+    secret.reloader.stakater.com/reload: "mysql-secret"
 spec:
   replicas: 1
   selector:
